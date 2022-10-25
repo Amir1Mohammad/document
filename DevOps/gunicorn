@@ -1,0 +1,4 @@
+$ gunicorn -b :8080 -w 6 micro:app
+
+$ gunicorn -b :8080 --access-logfile - --error-logfile - micro:app
+

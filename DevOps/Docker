@@ -1,0 +1,11 @@
+1- for build docker image : $ sudo docker build -t micro:latest .
+
+2- for remove docker docker image : $ sudo docker rmi -f <docker image_id>
+
+3- for inspect docker image : $ sudo docker inspect <docker image_id>
+
+4- for run a command in a running container: $ sudo docker exec <docker image_id> tail -f /logs/cms.log
+
+5 - for delete all your containers : $ sudo docker ps -q -a | xargs docker rm
+
+6- docker run flask app : $ sudo docker run --name microblog -p 8080:5000 --rm micro:latest

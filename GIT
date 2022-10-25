@@ -1,0 +1,14 @@
+1- Update remote branch list : $ git remote update origin --prune
+
+2- Delete remote branches : $ git push --delete origin <branch_name>
+
+3- Delete local branches : $ git branch -d <branch_name>
+
+4- Delete all local branches except master: $ git branch | grep -v '^*' | xargs git branch -D
+
+5- Delete all remote branches except master :
+    $ REMOTE="origin" && MASTER="master"
+    $ git branch -r |  grep "^  ${REMOTE}/" | sed "s|^  ${REMOTE}/|:|" | grep -v "^:HEAD" | grep -v "^:${MASTER}$" | xargs git push ${REMOTE}
+
+6- Count number of code lines in git repository per user : $ git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+
